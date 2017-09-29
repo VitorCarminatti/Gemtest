@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gemtest</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="http://localhost:3000">Gem Test</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="http://localhost:3000">Home</a></li>
+          <li><a href="http://localhost:3000/physicians/new">Médicos</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if(user_signed_in?) %>
+          <p class="navbar-text"><%= current_user.email %></p>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete  do %>
+              <span class="glyphicon glyphicon-log-out"> Logout</span>
+            <% end %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="input-group col-md-3 center-block text-center">
+  	 <%= yield %>
+    </div>
+
+  </body>
+</html>

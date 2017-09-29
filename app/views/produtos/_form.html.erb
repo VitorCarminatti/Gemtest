@@ -1,0 +1,11 @@
+<%= simple_form_for @produto do |f| %>
+	<%= f.error_notification %>
+	<%= f.input :nome, label: 'Nome' %>
+	<%= f.input :descricao, label: 'Descrição', as: :text, input_html: { rows: 5} %>
+	<%= f.input :preco, label: 'Preço', as: :integer %>
+	<%= f.input :quantidade, label: 'Quantidade' %>
+	<br />
+	<br />
+	<%= f.button :submit, t('views.produto.edit.submit'), class: "my-button btn btn-primary" %> 
+	<%= link_to t('views.produto.back'), produtos_path , class: "btn btn-primary"%>
+<% end %>

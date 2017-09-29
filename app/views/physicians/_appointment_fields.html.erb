@@ -1,0 +1,11 @@
+<div class="row remove-item nested-fields">
+
+        <%= f.input :appointment_date, label: false, as: :date_picker %>
+
+        <%= f.fields_for :appointments do |appointment_patient| %>
+            <%= appointment_patient.text_field :name %>
+        <% end %>
+
+        <%= link_to_remove_association "Remover consulta", f, :class => "btn btn-danger" %>
+    </div>  
+</div>

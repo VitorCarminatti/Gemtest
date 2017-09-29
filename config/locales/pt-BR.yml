@@ -1,0 +1,50 @@
+pt-BR:
+  activerecord:
+    models:
+      physician:
+        new:
+          title: 'Novo médico'
+          submit: 'Criar médico'
+      produto:
+        one: 'produto'
+        other: 'produtos'
+        new:
+          title: 'Novo produto'
+          back: 'Voltar'
+          submit: 'Gravar'
+      appointment:
+        appointment_date: 'Data da consulta'
+  views:
+    produto:
+      back: 'Voltar'
+      edit:
+        title: 'Editando produto'
+        submit: 'Gravar'
+      new:
+        title: 'Novo Produto'
+      index:
+        new: 'Novo produto'
+        show: 'Consultar'
+        edit: 'Editar'
+        destroy: 'Excluir'
+      show:
+        edit: 'Editar'
+  time:
+    formats:
+      data_hora: "%d/%b/%Y %H:%M"
+      data: "%d/%b/%Y"
+      filename: "%Y-%b-%d_%H-%M"
+
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+    formats:
+      data: "%d/%b/%Y"
+  devise:
+    sessions:
+      user_signed_out: 'Logout efetuado com sucesso'
+  will_paginate:
+    next_label: 'Próxima página'
+    previous_label: 'Página anterior'

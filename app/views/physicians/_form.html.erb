@@ -1,0 +1,23 @@
+<%= simple_form_for(@physician) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <hr/>
+    <%= f.input :name %>
+    <hr/>
+    <div class="form-actions">
+      <hr/>
+      <%= link_to_add_association 'Adicionar consulta', f, :appointments, :class => "btn btn-success "%>
+      <hr/>
+    </div>
+
+    <%= f.simple_fields_for :appointments do |appointment| %>
+    <%= render 'appointment-fields', f: appointment %>
+    <% end %>
+
+  <div class="form-actions">
+      <%= f.button :submit, "Criar médico", class: "my-button btn btn-primary" %>
+      <%= link_to 'Voltar', physicians_path, :class => "btn btn-primary" %>
+  </div>
+
+<% end %>

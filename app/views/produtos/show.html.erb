@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title"><strong><%= @produto.nome %></strong></h4>
+
+			<p>
+			  <strong>Descricao:</strong>
+			  <%= @produto.descricao %>
+			</p>
+
+			<p>
+			  <strong>Preco:</strong>
+			  <%= @produto.preco %>
+			</p>
+
+			<p>
+			  <strong>Quantidade:</strong>
+			  <%= @produto.quantidade %>
+			</p>
+		</div>
+	</div>
+<%= link_to t('views.produto.show.edit'), edit_produto_path(@produto), class: "btn btn-primary"%> 
+<%= link_to t('views.produto.show.back'), produtos_path, class: "btn btn-primary"%>

@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Produtos</h1>
+  <form class="form-inline">
+    <%= search_form_for @q do |f| %> 
+      <%= f.search_field :nome_or_descricao_cont, class: "form-control mr-sm-2"%>
+      <%= f.submit :class => "btn btn-primary"%>
+      <%= f.select :by_nome, nomes_for_select, include_blank: 'Selecione o nome', as: :select2, multiple: true  %>
+      <%= f.submit :class => "btn btn-primary"%>
+    <% end %>
+  </form>
+
+<table class="table">
+  <table class="table table-bordered table-responsive">
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Preço</th>
+      <th>Quantidade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produtos.each do |produto| %>
+      <tr>
+        <td><%= produto.nome %></td>
+        <td><%= produto.descricao %></td>
+        <td><%= produto.preco %></td>
+        <td><%= produto.quantidade %></td>
+        <td><%= link_to t('views.produto.index.show'), produto, :class => "btn btn-primary" %></td>
+        <td><%= link_to t('views.produto.index.edit'), edit_produto_path(produto), :class => "btn btn-primary" %></td>
+        <td><%= link_to t('views.produto.index.destroy'), produto, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  <%= will_paginate @produtos, renderer: BootstrapPagination::Rails, :inner_window => 1  %>
+  
+  <br>
+
+  <%= link_to t('views.produto.index.new'), new_produto_path, :class => "btn btn-primary" %>

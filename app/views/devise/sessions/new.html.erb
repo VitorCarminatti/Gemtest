@@ -1,0 +1,16 @@
+<h2>Log in</h2>
+
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+    <%= f.input :email, placeholder: 'Enter Email'%>
+
+    <%= f.input :password, placeholder: 'Password' %>
+
+    <% if devise_mapping.rememberable? %>
+      <%= f.input :remember_me, as: :boolean %>
+    <% end %>
+
+    <%= f.submit 'Entrar', class: 'btn btn-default' %>
+  <% end %>
+
+<%= render "devise/shared/links" %>
